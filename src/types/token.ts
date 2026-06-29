@@ -3,6 +3,8 @@ export enum EKinaLexerTokenKind {
   KeywordReturn = "kina.keyword.return",
   KeywordExtern = "kina.keyword.extern",
 
+  DirectiveInclude = "kina.directive.include",
+
   Identifier = "kina.identifier",
 
   TypeInt32 = "kina.type.int32",

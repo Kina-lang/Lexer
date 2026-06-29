@@ -30,6 +30,12 @@ export class KinaLexerProcessor {
   private static TOKEN_KEYWORD = Object.keys(
     this.TOKEN_KEYWORD_MAP,
   ) as (keyof typeof this.TOKEN_KEYWORD_MAP)[];
+  private static TOKEN_DIRECTIVE_MAP = {
+    "@include": EKinaLexerTokenKind.DirectiveInclude,
+  };
+  private static TOKEN_DIRECTIVE = Object.keys(
+    this.TOKEN_DIRECTIVE_MAP,
+  ) as (keyof typeof this.TOKEN_DIRECTIVE_MAP)[];
   private static TOKEN_TYPE_MAP = {
     int32: EKinaLexerTokenKind.TypeInt32,
     bool: EKinaLexerTokenKind.TypeBool,
@@ -53,6 +59,7 @@ export class KinaLexerProcessor {
       else if (this.isBoolean(chars, char)) this.parseBoolean(chars, char);
       else if (this.isNumber(char)) this.parseNumber(chars, char);
       else if (this.isString(char)) this.parseString(chars, char);
+      else if (this.isDirective(chars, char)) this.parseDirective(chars, char);
       else if (this.isKeyword(chars, char)) this.parseKeyword(chars, char);
       else if (this.isType(chars, char)) this.parseType(chars, char);
       else if (this.isWhitespace(char)) {
@@ -165,6 +172,32 @@ export class KinaLexerProcessor {
     if (
       KinaLexerProcessor.TOKEN_KEYWORD.includes(
         buf as keyof typeof KinaLexerProcessor.TOKEN_KEYWORD_MAP,
+      )
+    )
+      return true;
+    return false;
+  }
+
+  private isDirective(chars: string, char: string) {
+    let buf = "";
+    let currentChar = char;
+
+    for (let i = this.cursorPosition; i < chars.length; i++) {
+      currentChar = chars[i]!;
+
+      if (
+        this.isSingleCharToken(currentChar) ||
+        this.isWhitespace(currentChar) ||
+        this.isNewline(currentChar)
+      )
+        break;
+
+      buf += currentChar;
+    }
+
+    if (
+      KinaLexerProcessor.TOKEN_DIRECTIVE.includes(
+        buf as keyof typeof KinaLexerProcessor.TOKEN_DIRECTIVE_MAP,
       )
     )
       return true;
@@ -347,6 +380,50 @@ export class KinaLexerProcessor {
     this.tokens.push({
       kind: KinaLexerProcessor.TOKEN_KEYWORD_MAP[
         buf as keyof typeof KinaLexerProcessor.TOKEN_KEYWORD_MAP
+      ],
+      value: buf,
+      len: buf.length,
+      col: this.currentCol - buf.length + 1,
+      line: this.currentLine,
+    });
+  }
+
+  private parseDirective(chars: string, char: string) {
+    let buf = "";
+    let currentChar: string | undefined = char;
+
+    while (currentChar) {
+      currentChar = chars[this.cursorPosition];
+
+      if (
+        !currentChar ||
+        this.isSingleCharToken(currentChar) ||
+        this.isWhitespace(currentChar) ||
+        this.isNewline(currentChar)
+      )
+        break;
+
+      buf += currentChar;
+
+      this.cursorPosition++;
+      this.currentCol++;
+    }
+
+    if (
+      !KinaLexerProcessor.TOKEN_DIRECTIVE_MAP[
+        buf as keyof typeof KinaLexerProcessor.TOKEN_DIRECTIVE_MAP
+      ]
+    ) {
+      this.logger.error("ASSERT: INVALID DIRECTIVE");
+      return;
+    }
+
+    this.cursorPosition--;
+    this.currentCol--;
+
+    this.tokens.push({
+      kind: KinaLexerProcessor.TOKEN_DIRECTIVE_MAP[
+        buf as keyof typeof KinaLexerProcessor.TOKEN_DIRECTIVE_MAP
       ],
       value: buf,
       len: buf.length,
