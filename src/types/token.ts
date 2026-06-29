@@ -32,6 +32,12 @@ export type IKinaLexerTokenKindType =
   | EKinaLexerTokenKind.TypeString
   | EKinaLexerTokenKind.TypeBool;
 
+export type IKinaLexerTokenKindLiteral =
+  | EKinaLexerTokenKind.LiteralInt
+  | EKinaLexerTokenKind.LiteralFloat
+  | EKinaLexerTokenKind.LiteralBool
+  | EKinaLexerTokenKind.LiteralString;
+
 export interface IKinaLexerTokenDefinition {
   kind: EKinaLexerTokenKind;
   value: string;
