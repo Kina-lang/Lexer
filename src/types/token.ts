@@ -27,6 +27,11 @@ export enum EKinaLexerTokenKind {
   EOF = "kina.eof",
 }
 
+export type IKinaLexerTokenKindType =
+  | EKinaLexerTokenKind.TypeInt32
+  | EKinaLexerTokenKind.TypeString
+  | EKinaLexerTokenKind.TypeBool;
+
 export interface IKinaLexerTokenDefinition {
   kind: EKinaLexerTokenKind;
   value: string;

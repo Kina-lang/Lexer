@@ -291,8 +291,8 @@ export class KinaLexerProcessor {
         col: this.currentCol,
       });
 
-      this.cursorPosition += 5;
-      this.currentCol += 5;
+      this.cursorPosition += 4;
+      this.currentCol += 4;
     } else if (this.isTrueBoolean(chars, char)) {
       this.tokens.push({
         kind: EKinaLexerTokenKind.LiteralBool,
@@ -302,8 +302,8 @@ export class KinaLexerProcessor {
         col: this.currentCol,
       });
 
-      this.cursorPosition += 4;
-      this.currentCol += 4;
+      this.cursorPosition += 3;
+      this.currentCol += 3;
     } else {
       // Should never occur unless cursor position illegaly shifted
       this.logger.error("ASSERT: INVALID BOOLEAN");
