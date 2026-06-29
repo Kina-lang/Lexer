@@ -1,6 +1,7 @@
 export enum EKinaLexerTokenKind {
   KeywordFunction = "kina.keyword.function",
   KeywordReturn = "kina.keyword.return",
+  KeywordExtern = "kina.keyword.extern",
 
   Identifier = "kina.identifier",
 

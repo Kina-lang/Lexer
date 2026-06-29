@@ -25,6 +25,7 @@ export class KinaLexerProcessor {
   private static TOKEN_KEYWORD_MAP = {
     func: EKinaLexerTokenKind.KeywordFunction,
     return: EKinaLexerTokenKind.KeywordReturn,
+    extern: EKinaLexerTokenKind.KeywordExtern,
   };
   private static TOKEN_KEYWORD = Object.keys(
     this.TOKEN_KEYWORD_MAP,
