@@ -17,6 +17,8 @@ export enum TokenKind {
   KeywordReturn = "lex.KeywordReturn",
   KeywordExtern = "lex.KeywordExtern",
 
+  Comment = "lex.Comment",
+
   OperatorAssign = "lex.OperatorAssign",
 }
 

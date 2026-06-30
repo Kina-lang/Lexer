@@ -1,0 +1,34 @@
+[
+  {
+    "kind": "lex.Comment",
+    "value": "// this is single line comment",
+    "span": [
+      [1, 1],
+      [1, 31]
+    ]
+  },
+  {
+    "kind": "lex.Comment",
+    "value": "/* this\nis a multiline\ncomment\n*/",
+    "span": [
+      [2, 1],
+      [5, 3]
+    ]
+  },
+  {
+    "kind": "lex.Comment",
+    "value": "/* single line multiline comment */",
+    "span": [
+      [6, 1],
+      [6, 36]
+    ]
+  },
+  {
+    "kind": "lex.Comment",
+    "value": "/*\nanother\nmultiline*/",
+    "span": [
+      [7, 1],
+      [9, 12]
+    ]
+  }
+]

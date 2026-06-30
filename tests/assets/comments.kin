@@ -1,0 +1,9 @@
+// this is single line comment
+/* this
+is a multiline
+comment
+*/
+/* single line multiline comment */
+/*
+another
+multiline*/
