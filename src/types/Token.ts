@@ -31,6 +31,8 @@ export enum TokenKind {
   LiteralFloat = "lex.LiteralFloat",
 
   OperatorAssign = "lex.OperatorAssign",
+
+  EOF = "lex.EOF",
 }
 
 export interface TokenSpan {

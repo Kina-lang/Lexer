@@ -7,6 +7,7 @@ import { CommaToken } from "./Comma";
 import { CommentToken } from "./Comment";
 import { DirectiveIncludeToken } from "./DirectiveInclude";
 import { DotToken } from "./Dot";
+import { EOFToken } from "./EOF";
 import { KeywordExternToken } from "./KeywordExtern";
 import { KeywordFunctionToken } from "./KeywordFunction";
 import { KeywordMutableToken } from "./KeywordMutable";
@@ -50,6 +51,7 @@ export {
   LiteralIntegerToken,
   LiteralFloatToken,
   OperatorAssignToken,
+  EOFToken,
 };
 
 export const Tokens = {
@@ -85,4 +87,6 @@ export const Tokens = {
   LiteralFloat: LiteralFloatToken,
 
   OperatorAssign: OperatorAssignToken,
+
+  EOF: EOFToken,
 };

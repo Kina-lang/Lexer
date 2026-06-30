@@ -88,7 +88,6 @@ describe("Lexer", () => {
     );
 
     const tokens = lexer.tokenize(input);
-    console.log(tokens);
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);

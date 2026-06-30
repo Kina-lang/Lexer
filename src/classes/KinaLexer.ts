@@ -10,6 +10,7 @@ import { CommentTokenizer } from "./tokenizers/CommentTokenizer";
 import { DirectiveTokenizer } from "./tokenizers/DirectiveTokenizer";
 import { TypeTokenizer } from "./tokenizers/TypeTokenizer";
 import { LiteralTokenizer } from "./tokenizers/LiteralTokenizer";
+import { Tokens } from "./tokens/_index";
 
 export class KinaLexer {
   private readonly _opts: ILexerConfig;
@@ -47,7 +48,7 @@ export class KinaLexer {
       tokens.push(...newTokens);
     }
 
-    return tokens;
+    return [...tokens, new Tokens.EOF()];
   }
 
   private processCurrent(characterStream: CharacterStream): BaseToken[] {

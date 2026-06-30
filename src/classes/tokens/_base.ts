@@ -20,14 +20,20 @@ export abstract class BaseToken {
 
   export(): {
     kind: TokenKind;
-    span: [[number | null, number | null], [number | null, number | null]];
+    span?: [[number | null, number | null], [number | null, number | null]];
   } {
+    const spanIsNull = this.span === null;
+
     return {
       kind: this.kind,
-      span: [
-        [this.span?.start.line ?? null, this.span?.start.column ?? null],
-        [this.span?.end.line ?? null, this.span?.end.column ?? null],
-      ],
+      ...(spanIsNull
+        ? {}
+        : {
+            span: [
+              [this.span?.start.line ?? null, this.span?.start.column ?? null],
+              [this.span?.end.line ?? null, this.span?.end.column ?? null],
+            ],
+          }),
     };
   }
 
