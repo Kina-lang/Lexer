@@ -32,6 +32,7 @@ export enum TokenKind {
 
   OperatorAssign = "lex.OperatorAssign",
 
+  Whitespace = "lex.Whitespace",
   EOF = "lex.EOF",
 }
 

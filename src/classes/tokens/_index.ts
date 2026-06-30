@@ -24,6 +24,7 @@ import { SemicolonToken } from "./Semicolon";
 import { TypeBoolToken } from "./TypeBool";
 import { TypeIntToken } from "./TypeInt";
 import { TypeVoidToken } from "./TypeVoid";
+import { WhitespaceToken } from "./Whitespace";
 
 export {
   ParentheseOpenToken,
@@ -51,6 +52,7 @@ export {
   LiteralIntegerToken,
   LiteralFloatToken,
   OperatorAssignToken,
+  WhitespaceToken,
   EOFToken,
 };
 
@@ -88,5 +90,6 @@ export const Tokens = {
 
   OperatorAssign: OperatorAssignToken,
 
+  Whitespace: WhitespaceToken,
   EOF: EOFToken,
 };

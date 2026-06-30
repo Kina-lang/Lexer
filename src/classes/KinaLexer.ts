@@ -11,6 +11,7 @@ import { DirectiveTokenizer } from "./tokenizers/DirectiveTokenizer";
 import { TypeTokenizer } from "./tokenizers/TypeTokenizer";
 import { LiteralTokenizer } from "./tokenizers/LiteralTokenizer";
 import { Tokens } from "./tokens/_index";
+import { WhitespaceTokenizer } from "./tokenizers/WhitespaceTokenizer";
 
 export class KinaLexer {
   private readonly _opts: ILexerConfig;
@@ -25,6 +26,7 @@ export class KinaLexer {
     new DirectiveTokenizer(),
     new TypeTokenizer(),
     new LiteralTokenizer(),
+    new WhitespaceTokenizer(), // Must have third lowest priority
     new SingleCharacterTokenizer(), // Must have second lowest priority
     new IdentifierTokenizer(), // Must have lowest priority
   ] as const;
