@@ -4,6 +4,8 @@ import { BracketCloseToken } from "./BracketClose";
 import { BracketOpenToken } from "./BracketOpen";
 import { ColonToken } from "./Colon";
 import { CommaToken } from "./Comma";
+import { CommentToken } from "./Comment";
+import { DirectiveIncludeToken } from "./DirectiveInclude";
 import { DotToken } from "./Dot";
 import { KeywordExternToken } from "./KeywordExtern";
 import { KeywordFunctionToken } from "./KeywordFunction";
@@ -31,6 +33,8 @@ export {
   KeywordMutableToken,
   KeywordReturnToken,
   KeywordExternToken,
+  CommentToken,
+  DirectiveIncludeToken,
   OperatorAssignToken,
 };
 
@@ -52,6 +56,10 @@ export const Tokens = {
   KeywordMutable: KeywordMutableToken,
   KeywordReturn: KeywordReturnToken,
   KeywordExtern: KeywordExternToken,
+
+  Comment: CommentToken,
+
+  DirectiveInclude: DirectiveIncludeToken,
 
   OperatorAssign: OperatorAssignToken,
 };

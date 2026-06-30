@@ -19,6 +19,8 @@ export enum TokenKind {
 
   Comment = "lex.Comment",
 
+  DirectiveInclude = "lex.DirectiveInclude",
+
   OperatorAssign = "lex.OperatorAssign",
 }
 

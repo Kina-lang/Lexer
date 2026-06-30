@@ -101,9 +101,10 @@ export class CharacterStream {
   public peekUntil(
     characterStream: CharacterStream,
     predicate: (char: string) => boolean,
+    initialOffset: number = 0,
   ): string {
     let result: string = "";
-    let offset: number = 0;
+    let offset: number = initialOffset;
     let currentCharacter: string | null = characterStream.peekAhead(offset);
 
     while (currentCharacter && predicate(currentCharacter)) {
