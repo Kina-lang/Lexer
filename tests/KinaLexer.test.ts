@@ -17,7 +17,9 @@ describe("Lexer", () => {
       await readFile("./tests/assets/singleCharacters.kin.json", "utf-8"),
     );
 
-    const tokens = lexer.tokenize(input);
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);
@@ -31,7 +33,9 @@ describe("Lexer", () => {
       await readFile("./tests/assets/keywords.kin.json", "utf-8"),
     );
 
-    const tokens = lexer.tokenize(input);
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);
@@ -45,7 +49,9 @@ describe("Lexer", () => {
       await readFile("./tests/assets/comments.kin.json", "utf-8"),
     );
 
-    const tokens = lexer.tokenize(input);
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);
@@ -59,7 +65,9 @@ describe("Lexer", () => {
       await readFile("./tests/assets/directives.kin.json", "utf-8"),
     );
 
-    const tokens = lexer.tokenize(input);
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);
@@ -73,7 +81,9 @@ describe("Lexer", () => {
       await readFile("./tests/assets/types.kin.json", "utf-8"),
     );
 
-    const tokens = lexer.tokenize(input);
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);
@@ -87,7 +97,25 @@ describe("Lexer", () => {
       await readFile("./tests/assets/literals.kin.json", "utf-8"),
     );
 
-    const tokens = lexer.tokenize(input);
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
+
+    expect(tokens).toBeDefined();
+    expect(Array.isArray(tokens)).toBe(true);
+    expect(tokens.length).toBeGreaterThan(0);
+    expect(tokens.map((t) => t.export())).toEqual(wantedOutput);
+  });
+
+  it("should tokenize identifiers correctly", async () => {
+    const input = await readFile("./tests/assets/identifiers.kin", "utf-8");
+    const wantedOutput = JSON.parse(
+      await readFile("./tests/assets/identifiers.kin.json", "utf-8"),
+    );
+
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace" && t.kind !== "lex.Newline");
 
     expect(tokens).toBeDefined();
     expect(Array.isArray(tokens)).toBe(true);

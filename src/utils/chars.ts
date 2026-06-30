@@ -5,3 +5,7 @@ export function isEndOfLine(char: string): boolean {
 export function isWhitespace(char: string): boolean {
   return char === " " || char === "\t";
 }
+
+export function isDigit(char: string): boolean {
+  return /[0-9]/.test(char);
+}

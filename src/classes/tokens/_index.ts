@@ -8,6 +8,7 @@ import { CommentToken } from "./Comment";
 import { DirectiveIncludeToken } from "./DirectiveInclude";
 import { DotToken } from "./Dot";
 import { EOFToken } from "./EOF";
+import { IdentifierToken } from "./Identifier";
 import { KeywordExternToken } from "./KeywordExtern";
 import { KeywordFunctionToken } from "./KeywordFunction";
 import { KeywordMutableToken } from "./KeywordMutable";
@@ -17,6 +18,7 @@ import { LiteralBooleanToken } from "./LiteralBoolean";
 import { LiteralFloatToken } from "./LiteralFloat";
 import { LiteralIntegerToken } from "./LiteralInteger";
 import { LiteralStringToken } from "./LiteralString";
+import { NewlineToken } from "./Newline";
 import { OperatorAssignToken } from "./OperatorAssign";
 import { ParentheseCloseToken } from "./ParentheseClose";
 import { ParentheseOpenToken } from "./ParentheseOpen";
@@ -52,6 +54,8 @@ export {
   LiteralIntegerToken,
   LiteralFloatToken,
   OperatorAssignToken,
+  IdentifierToken,
+  NewlineToken,
   WhitespaceToken,
   EOFToken,
 };
@@ -90,6 +94,9 @@ export const Tokens = {
 
   OperatorAssign: OperatorAssignToken,
 
+  Identifier: IdentifierToken,
+
+  Newline: NewlineToken,
   Whitespace: WhitespaceToken,
   EOF: EOFToken,
 };
