@@ -309,7 +309,7 @@ export class KinaLexerProcessor {
     this.tokens.push({
       kind: EKinaLexerTokenKind.LiteralString,
       value: buf.slice(1, -1),
-      len: buf.length - 2,
+      len: buf.length,
       line: this.currentLine,
       col: this.currentCol - buf.length + 1,
     });
