@@ -79,4 +79,63 @@ export class CharacterStream {
   public get isAtEnd(): boolean {
     return this._currentPosition >= this._characters.length;
   }
+
+  /**
+   * Returns the character at the specified position ahead of the current position in the character stream without advancing the position.
+   * @param n The number of characters ahead of the current position to peek.
+   * @returns The character at the specified position ahead of the current position in the character stream, or null if the end of the stream has been reached.
+   */
+  public peekAhead(n: number): string | null {
+    const peekPosition = this._currentPosition + n;
+    if (peekPosition >= this._characters.length) return null;
+
+    return this._characters[peekPosition]!;
+  }
+
+  /**
+   * Returns a string containing all characters from the current position in the character stream until the predicate function returns false.
+   * @param characterStream
+   * @param predicate A function that takes a character as input and returns true if the character should be included in the result string, false otherwise.
+   * @returns A string containing all characters from the current position in the character stream until the predicate function returns false.
+   */
+  public peekUntil(
+    characterStream: CharacterStream,
+    predicate: (char: string) => boolean,
+  ): string {
+    let result: string = "";
+    let offset: number = 0;
+    let currentCharacter: string | null = characterStream.peekAhead(offset);
+
+    while (currentCharacter && predicate(currentCharacter)) {
+      result += currentCharacter;
+      offset++;
+
+      currentCharacter = characterStream.peekAhead(offset);
+    }
+
+    return result;
+  }
+
+  /**
+   * Advances the character stream until the predicate function returns false, returning a string containing all characters that were advanced over.
+   * @param characterStream
+   * @param predicate A function that takes a character as input and returns true if the character should be included in the result string, false otherwise.
+   * @returns A string containing all characters that were advanced over until the predicate function returned false.
+   */
+  public advanceUntil(
+    characterStream: CharacterStream,
+    predicate: (char: string) => boolean,
+  ): string {
+    let result: string = "";
+    let currentCharacter: string | null = characterStream.peek();
+
+    while (currentCharacter && predicate(currentCharacter)) {
+      result += currentCharacter;
+      characterStream.advance();
+
+      currentCharacter = characterStream.peek();
+    }
+
+    return result;
+  }
 }

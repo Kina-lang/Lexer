@@ -5,6 +5,11 @@ import { BracketOpenToken } from "./BracketOpen";
 import { ColonToken } from "./Colon";
 import { CommaToken } from "./Comma";
 import { DotToken } from "./Dot";
+import { KeywordExternToken } from "./KeywordExtern";
+import { KeywordFunctionToken } from "./KeywordFunction";
+import { KeywordMutableToken } from "./KeywordMutable";
+import { KeywordReturnToken } from "./KeywordReturn";
+import { KeywordVariableToken } from "./KeywordVariable";
 import { OperatorAssignToken } from "./OperatorAssign";
 import { ParentheseCloseToken } from "./ParentheseClose";
 import { ParentheseOpenToken } from "./ParentheseOpen";
@@ -21,6 +26,11 @@ export {
   SemicolonToken,
   CommaToken,
   DotToken,
+  KeywordFunctionToken,
+  KeywordVariableToken,
+  KeywordMutableToken,
+  KeywordReturnToken,
+  KeywordExternToken,
   OperatorAssignToken,
 };
 
@@ -31,9 +41,17 @@ export const Tokens = {
   BracketClose: BracketCloseToken,
   BraceOpen: BraceOpenToken,
   BraceClose: BraceCloseToken,
+
   Colon: ColonToken,
   Semicolon: SemicolonToken,
   Comma: CommaToken,
   Dot: DotToken,
+
+  KeywordFunction: KeywordFunctionToken,
+  KeywordVariable: KeywordVariableToken,
+  KeywordMutable: KeywordMutableToken,
+  KeywordReturn: KeywordReturnToken,
+  KeywordExtern: KeywordExternToken,
+
   OperatorAssign: OperatorAssignToken,
 };

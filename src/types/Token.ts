@@ -11,6 +11,12 @@ export enum TokenKind {
   Comma = "lex.Comma",
   Dot = "lex.Dot",
 
+  KeywordFunction = "lex.KeywordFunction",
+  KeywordVariable = "lex.KeywordVariable",
+  KeywordMutable = "lex.KeywordMutable",
+  KeywordReturn = "lex.KeywordReturn",
+  KeywordExtern = "lex.KeywordExtern",
+
   OperatorAssign = "lex.OperatorAssign",
 }
 

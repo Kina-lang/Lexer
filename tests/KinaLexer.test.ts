@@ -24,4 +24,18 @@ describe("Lexer", () => {
     expect(tokens.length).toBeGreaterThan(0);
     expect(tokens.map((t) => t.export())).toEqual(wantedOutput);
   });
+
+  it("should tokenize keywords correctly", async () => {
+    const input = await readFile("./tests/assets/keywords.kin", "utf-8");
+    const wantedOutput = JSON.parse(
+      await readFile("./tests/assets/keywords.kin.json", "utf-8"),
+    );
+
+    const tokens = lexer.tokenize(input);
+
+    expect(tokens).toBeDefined();
+    expect(Array.isArray(tokens)).toBe(true);
+    expect(tokens.length).toBeGreaterThan(0);
+    expect(tokens.map((t) => t.export())).toEqual(wantedOutput);
+  });
 });
