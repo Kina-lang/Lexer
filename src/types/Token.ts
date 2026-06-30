@@ -21,6 +21,10 @@ export enum TokenKind {
 
   DirectiveInclude = "lex.DirectiveInclude",
 
+  TypeVoid = "lex.TypeVoid",
+  TypeInt = "lex.TypeInt",
+  TypeBool = "lex.TypeBool",
+
   OperatorAssign = "lex.OperatorAssign",
 }
 

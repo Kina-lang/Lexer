@@ -16,6 +16,9 @@ import { OperatorAssignToken } from "./OperatorAssign";
 import { ParentheseCloseToken } from "./ParentheseClose";
 import { ParentheseOpenToken } from "./ParentheseOpen";
 import { SemicolonToken } from "./Semicolon";
+import { TypeBoolToken } from "./TypeBool";
+import { TypeIntToken } from "./TypeInt";
+import { TypeVoidToken } from "./TypeVoid";
 
 export {
   ParentheseOpenToken,
@@ -35,6 +38,9 @@ export {
   KeywordExternToken,
   CommentToken,
   DirectiveIncludeToken,
+  TypeVoidToken,
+  TypeIntToken,
+  TypeBoolToken,
   OperatorAssignToken,
 };
 
@@ -60,6 +66,10 @@ export const Tokens = {
   Comment: CommentToken,
 
   DirectiveInclude: DirectiveIncludeToken,
+
+  TypeVoid: TypeVoidToken,
+  TypeInt: TypeIntToken,
+  TypeBool: TypeBoolToken,
 
   OperatorAssign: OperatorAssignToken,
 };

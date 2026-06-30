@@ -8,6 +8,7 @@ import type { BaseToken } from "./tokens/_base";
 import { KeywordTokenizer } from "./tokenizers/KeywordTokenizer";
 import { CommentTokenizer } from "./tokenizers/CommentTokenizer";
 import { DirectiveTokenizer } from "./tokenizers/DirectiveTokenizer";
+import { TypeTokenizer } from "./tokenizers/TypeTokenizer";
 
 export class KinaLexer {
   private readonly _opts: ILexerConfig;
@@ -20,6 +21,7 @@ export class KinaLexer {
     new KeywordTokenizer(),
     new CommentTokenizer(),
     new DirectiveTokenizer(),
+    new TypeTokenizer(),
     new SingleCharacterTokenizer(), // Must have second lowest priority
     new IdentifierTokenizer(), // Must have lowest priority
   ] as const;
