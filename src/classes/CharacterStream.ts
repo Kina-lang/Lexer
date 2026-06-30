@@ -95,19 +95,26 @@ export class CharacterStream {
   /**
    * Returns a string containing all characters from the current position in the character stream until the predicate function returns false.
    * @param characterStream
-   * @param predicate A function that takes a character as input and returns true if the character should be included in the result string, false otherwise.
+   * @param predicate A function that takes a character as input and current offset and returns true if the character should be included in the result string, false otherwise.
    * @returns A string containing all characters from the current position in the character stream until the predicate function returns false.
    */
   public peekUntil(
     characterStream: CharacterStream,
-    predicate: (char: string) => boolean,
+    predicate: (
+      char: string,
+      currentOffset: number,
+      characterStream: CharacterStream,
+    ) => boolean,
     initialOffset: number = 0,
   ): string {
     let result: string = "";
     let offset: number = initialOffset;
     let currentCharacter: string | null = characterStream.peekAhead(offset);
 
-    while (currentCharacter && predicate(currentCharacter)) {
+    while (
+      currentCharacter &&
+      predicate(currentCharacter, offset, characterStream)
+    ) {
       result += currentCharacter;
       offset++;
 
@@ -120,17 +127,24 @@ export class CharacterStream {
   /**
    * Advances the character stream until the predicate function returns false, returning a string containing all characters that were advanced over.
    * @param characterStream
-   * @param predicate A function that takes a character as input and returns true if the character should be included in the result string, false otherwise.
+   * @param predicate A function that takes a character as input and current offset and returns true if the character should be included in the result string, false otherwise.
    * @returns A string containing all characters that were advanced over until the predicate function returned false.
    */
   public advanceUntil(
     characterStream: CharacterStream,
-    predicate: (char: string) => boolean,
+    predicate: (
+      char: string,
+      currentOffset: number,
+      characterStream: CharacterStream,
+    ) => boolean,
   ): string {
     let result: string = "";
     let currentCharacter: string | null = characterStream.peek();
 
-    while (currentCharacter && predicate(currentCharacter)) {
+    while (
+      currentCharacter &&
+      predicate(currentCharacter, 0, characterStream)
+    ) {
       result += currentCharacter;
       characterStream.advance();
 

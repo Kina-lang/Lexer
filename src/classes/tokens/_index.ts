@@ -12,6 +12,10 @@ import { KeywordFunctionToken } from "./KeywordFunction";
 import { KeywordMutableToken } from "./KeywordMutable";
 import { KeywordReturnToken } from "./KeywordReturn";
 import { KeywordVariableToken } from "./KeywordVariable";
+import { LiteralBooleanToken } from "./LiteralBoolean";
+import { LiteralFloatToken } from "./LiteralFloat";
+import { LiteralIntegerToken } from "./LiteralInteger";
+import { LiteralStringToken } from "./LiteralString";
 import { OperatorAssignToken } from "./OperatorAssign";
 import { ParentheseCloseToken } from "./ParentheseClose";
 import { ParentheseOpenToken } from "./ParentheseOpen";
@@ -41,6 +45,10 @@ export {
   TypeVoidToken,
   TypeIntToken,
   TypeBoolToken,
+  LiteralBooleanToken,
+  LiteralStringToken,
+  LiteralIntegerToken,
+  LiteralFloatToken,
   OperatorAssignToken,
 };
 
@@ -70,6 +78,11 @@ export const Tokens = {
   TypeVoid: TypeVoidToken,
   TypeInt: TypeIntToken,
   TypeBool: TypeBoolToken,
+
+  LiteralBoolean: LiteralBooleanToken,
+  LiteralString: LiteralStringToken,
+  LiteralInteger: LiteralIntegerToken,
+  LiteralFloat: LiteralFloatToken,
 
   OperatorAssign: OperatorAssignToken,
 };

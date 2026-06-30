@@ -25,6 +25,11 @@ export enum TokenKind {
   TypeInt = "lex.TypeInt",
   TypeBool = "lex.TypeBool",
 
+  LiteralBoolean = "lex.LiteralBoolean",
+  LiteralString = "lex.LiteralString",
+  LiteralInteger = "lex.LiteralInteger",
+  LiteralFloat = "lex.LiteralFloat",
+
   OperatorAssign = "lex.OperatorAssign",
 }
 
