@@ -1,0 +1,21 @@
+extern printInt(int): void;
+extern printBool(bool): void
+
+extern readInt(): int;
+
+func main(): int {
+  // This is a comment
+
+  var x: int = readInt();
+  
+  printInt(x);
+  printInt(20);
+
+  printBool(false)
+
+  /*
+    mut a: int = readInt();
+  */
+
+  return readInt();
+}

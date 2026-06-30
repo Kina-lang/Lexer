@@ -1,0 +1,9 @@
+true
+false
+"my string"
+'my string'
+"string with \"escaped quotes\" inside"
+'string with \'escaped quotes\' inside'
+'string with "quotes" inside'
+1
+1.02

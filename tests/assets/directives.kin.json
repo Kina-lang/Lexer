@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "lex.DirectiveInclude",
+    "span": [
+      [1, 1],
+      [1, 9]
+    ]
+  },
+  { "kind": "lex.EOF" }
+]

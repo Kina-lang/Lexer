@@ -1,0 +1,38 @@
+[
+  {
+    "kind": "lex.KeywordFunction",
+    "span": [
+      [1, 1],
+      [1, 5]
+    ]
+  },
+  {
+    "kind": "lex.KeywordVariable",
+    "span": [
+      [2, 1],
+      [2, 4]
+    ]
+  },
+  {
+    "kind": "lex.KeywordMutable",
+    "span": [
+      [3, 1],
+      [3, 4]
+    ]
+  },
+  {
+    "kind": "lex.KeywordReturn",
+    "span": [
+      [4, 1],
+      [4, 7]
+    ]
+  },
+  {
+    "kind": "lex.KeywordExtern",
+    "span": [
+      [5, 1],
+      [5, 7]
+    ]
+  },
+  { "kind": "lex.EOF" }
+]

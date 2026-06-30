@@ -1,0 +1,75 @@
+[
+  {
+    "kind": "lex.LiteralBoolean",
+    "value": "true",
+    "span": [
+      [1, 1],
+      [1, 5]
+    ]
+  },
+  {
+    "kind": "lex.LiteralBoolean",
+    "value": "false",
+    "span": [
+      [2, 1],
+      [2, 6]
+    ]
+  },
+  {
+    "kind": "lex.LiteralString",
+    "value": "\"my string\"",
+    "span": [
+      [3, 1],
+      [3, 12]
+    ]
+  },
+  {
+    "kind": "lex.LiteralString",
+    "value": "'my string'",
+    "span": [
+      [4, 1],
+      [4, 12]
+    ]
+  },
+  {
+    "kind": "lex.LiteralString",
+    "value": "\"string with \\\"escaped quotes\\\" inside\"",
+    "span": [
+      [5, 1],
+      [5, 40]
+    ]
+  },
+  {
+    "kind": "lex.LiteralString",
+    "value": "'string with \\'escaped quotes\\' inside'",
+    "span": [
+      [6, 1],
+      [6, 40]
+    ]
+  },
+  {
+    "kind": "lex.LiteralString",
+    "value": "'string with \"quotes\" inside'",
+    "span": [
+      [7, 1],
+      [7, 30]
+    ]
+  },
+  {
+    "kind": "lex.LiteralInteger",
+    "value": "1",
+    "span": [
+      [8, 1],
+      [8, 2]
+    ]
+  },
+  {
+    "kind": "lex.LiteralFloat",
+    "value": "1.02",
+    "span": [
+      [9, 1],
+      [9, 5]
+    ]
+  },
+  { "kind": "lex.EOF" }
+]

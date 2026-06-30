@@ -1,0 +1,80 @@
+[
+  {
+    "kind": "lex.ParentheseOpen",
+    "span": [
+      [1, 1],
+      [1, 2]
+    ]
+  },
+  {
+    "kind": "lex.ParentheseClose",
+    "span": [
+      [1, 2],
+      [1, 3]
+    ]
+  },
+  {
+    "kind": "lex.BracketOpen",
+    "span": [
+      [1, 3],
+      [1, 4]
+    ]
+  },
+  {
+    "kind": "lex.BracketClose",
+    "span": [
+      [1, 4],
+      [1, 5]
+    ]
+  },
+  {
+    "kind": "lex.BraceOpen",
+    "span": [
+      [1, 5],
+      [1, 6]
+    ]
+  },
+  {
+    "kind": "lex.BraceClose",
+    "span": [
+      [1, 6],
+      [1, 7]
+    ]
+  },
+  {
+    "kind": "lex.Colon",
+    "span": [
+      [1, 7],
+      [1, 8]
+    ]
+  },
+  {
+    "kind": "lex.Semicolon",
+    "span": [
+      [1, 8],
+      [1, 9]
+    ]
+  },
+  {
+    "kind": "lex.Comma",
+    "span": [
+      [1, 9],
+      [1, 10]
+    ]
+  },
+  {
+    "kind": "lex.Dot",
+    "span": [
+      [1, 10],
+      [1, 11]
+    ]
+  },
+  {
+    "kind": "lex.OperatorAssign",
+    "span": [
+      [1, 11],
+      [1, 12]
+    ]
+  },
+  { "kind": "lex.EOF" }
+]
