@@ -5,4 +5,8 @@ export class DirectiveIncludeToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.DirectiveInclude, span);
   }
+
+  override reconstruct(): string {
+    return "@include";
+  }
 }

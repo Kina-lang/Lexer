@@ -5,4 +5,8 @@ export class DotToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.Dot, span);
   }
+
+  override reconstruct(): string {
+    return ".";
+  }
 }

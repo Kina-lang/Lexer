@@ -5,4 +5,8 @@ export class ColonToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.Colon, span);
   }
+
+  override reconstruct(): string {
+    return ":";
+  }
 }

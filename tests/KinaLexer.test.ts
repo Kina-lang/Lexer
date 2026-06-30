@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { KinaLexer } from "../src";
+import { KinaLexer, KinaLexerReconstructor } from "../src";
 import { readFile } from "fs/promises";
 
 describe("Lexer", () => {
@@ -7,6 +7,7 @@ describe("Lexer", () => {
     fileName: "test.kin",
     rootDir: "/virtual/kina/test/",
   });
+  const reconstructor = new KinaLexerReconstructor();
 
   it("should tokenize single characters correctly", async () => {
     const input = await readFile(
@@ -121,5 +122,31 @@ describe("Lexer", () => {
     expect(Array.isArray(tokens)).toBe(true);
     expect(tokens.length).toBeGreaterThan(0);
     expect(tokens.map((t) => t.export())).toEqual(wantedOutput);
+  });
+
+  it("should tokenize code correctly", async () => {
+    const input = await readFile("./tests/assets/_001.kin", "utf-8");
+    const wantedOutput = JSON.parse(
+      await readFile("./tests/assets/_001.kin.json", "utf-8"),
+    );
+
+    const tokens = lexer
+      .tokenize(input)
+      .filter((t) => t.kind !== "lex.Whitespace");
+
+    expect(tokens).toBeDefined();
+    expect(Array.isArray(tokens)).toBe(true);
+    expect(tokens.length).toBeGreaterThan(0);
+    expect(tokens.map((t) => t.export())).toEqual(wantedOutput);
+  });
+
+  it("should reconstruct code correctly", async () => {
+    const input = await readFile("./tests/assets/_001.kin", "utf-8");
+    const wantedOutput = input;
+
+    const tokens = lexer.tokenize(input);
+    const reconstructedCode = reconstructor.reconstruct(tokens);
+
+    expect(reconstructedCode).toBe(wantedOutput);
   });
 });

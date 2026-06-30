@@ -5,4 +5,8 @@ export class BracketOpenToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.BracketOpen, span);
   }
+
+  override reconstruct(): string {
+    return "[";
+  }
 }

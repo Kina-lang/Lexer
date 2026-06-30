@@ -37,6 +37,8 @@ export abstract class BaseToken {
     };
   }
 
+  abstract reconstruct(): string;
+
   [inspect.custom](): string {
     return `Token<${this.kind}> ${inspect(this.export(), { depth: null })}`;
   }

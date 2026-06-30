@@ -5,4 +5,8 @@ export class TypeBoolToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.TypeBool, span);
   }
+
+  override reconstruct(): string {
+    return "bool";
+  }
 }

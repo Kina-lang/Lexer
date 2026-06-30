@@ -5,4 +5,8 @@ export class EOFToken extends BaseToken {
   constructor() {
     super(TokenKind.EOF, null);
   }
+
+  override reconstruct(): string {
+    return "";
+  }
 }

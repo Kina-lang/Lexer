@@ -5,4 +5,8 @@ export class KeywordMutableToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.KeywordMutable, span);
   }
+
+  override reconstruct(): string {
+    return "mut";
+  }
 }

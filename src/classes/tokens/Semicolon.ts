@@ -5,4 +5,8 @@ export class SemicolonToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.Semicolon, span);
   }
+
+  override reconstruct(): string {
+    return ";";
+  }
 }

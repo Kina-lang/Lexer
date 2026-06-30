@@ -5,4 +5,8 @@ export class ParentheseOpenToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.ParentheseOpen, span);
   }
+
+  override reconstruct(): string {
+    return "(";
+  }
 }

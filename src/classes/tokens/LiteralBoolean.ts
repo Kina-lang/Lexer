@@ -23,4 +23,8 @@ export class LiteralBooleanToken extends BaseToken {
       value: this.value,
     };
   }
+
+  override reconstruct(): string {
+    return this.value;
+  }
 }

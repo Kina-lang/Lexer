@@ -5,4 +5,8 @@ export class KeywordReturnToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.KeywordReturn, span);
   }
+
+  override reconstruct(): string {
+    return "return";
+  }
 }

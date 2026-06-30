@@ -23,4 +23,8 @@ export class LiteralStringToken extends BaseToken {
       value: this.value,
     };
   }
+
+  override reconstruct(): string {
+    return this.value;
+  }
 }

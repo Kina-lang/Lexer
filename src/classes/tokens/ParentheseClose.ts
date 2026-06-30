@@ -5,4 +5,8 @@ export class ParentheseCloseToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.ParentheseClose, span);
   }
+
+  override reconstruct(): string {
+    return ")";
+  }
 }

@@ -5,4 +5,8 @@ export class OperatorAssignToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.OperatorAssign, span);
   }
+
+  override reconstruct(): string {
+    return "=";
+  }
 }

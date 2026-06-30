@@ -5,4 +5,8 @@ export class KeywordFunctionToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.KeywordFunction, span);
   }
+
+  override reconstruct(): string {
+    return "func";
+  }
 }

@@ -5,4 +5,8 @@ export class NewlineToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.Newline, span);
   }
+
+  override reconstruct(): string {
+    return "\n";
+  }
 }

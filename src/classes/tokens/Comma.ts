@@ -5,4 +5,8 @@ export class CommaToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.Comma, span);
   }
+
+  override reconstruct(): string {
+    return ",";
+  }
 }

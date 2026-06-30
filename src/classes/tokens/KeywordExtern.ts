@@ -5,4 +5,8 @@ export class KeywordExternToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.KeywordExtern, span);
   }
+
+  override reconstruct(): string {
+    return "extern";
+  }
 }

@@ -5,4 +5,8 @@ export class BraceOpenToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.BraceOpen, span);
   }
+
+  override reconstruct(): string {
+    return "{";
+  }
 }

@@ -5,4 +5,8 @@ export class TypeIntToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.TypeInt, span);
   }
+
+  override reconstruct(): string {
+    return "int";
+  }
 }

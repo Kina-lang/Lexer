@@ -5,4 +5,8 @@ export class KeywordVariableToken extends BaseToken {
   constructor(span: TokenSpan) {
     super(TokenKind.KeywordVariable, span);
   }
+
+  override reconstruct(): string {
+    return "var";
+  }
 }

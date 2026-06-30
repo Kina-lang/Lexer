@@ -19,10 +19,14 @@ export class WhitespaceTokenizer extends BaseTokenizer {
   override tokenize(characterStream: CharacterStream): BaseToken[] {
     const startLocation = characterStream.currentLocation;
 
-    characterStream.advanceUntil(characterStream, (char) => isWhitespace(char));
+    const val = characterStream.advanceUntil(characterStream, (char) =>
+      isWhitespace(char),
+    );
 
     const endLocation = characterStream.currentLocation;
 
-    return [new WhitespaceToken({ start: startLocation, end: endLocation })];
+    return [
+      new WhitespaceToken({ start: startLocation, end: endLocation }, val),
+    ];
   }
 }
