@@ -13,6 +13,7 @@ import { LiteralTokenizer } from "./tokenizers/LiteralTokenizer";
 import { Tokens } from "./tokens/_index";
 import { WhitespaceTokenizer } from "./tokenizers/WhitespaceTokenizer";
 import { NewlineTokenizer } from "./tokenizers/NewlineTokenizer";
+import { TokenKind } from "../types/Token";
 
 export class KinaLexer {
   private readonly _opts: ILexerConfig;
@@ -70,12 +71,26 @@ export class KinaLexer {
       characterStream.advance();
       return [];
     }
+
     throw new KinaAssertionError(
       `No tokenizer could tokenize the current character at position ${characterStream.currentPosition}.`,
     );
   }
 
-  private filterMandatory(tokens: BaseToken[]): BaseToken[] {
-    return tokens.filter((token) => token.isMandatory === true);
+  /**
+   * Filters the given array of tokens to only include mandatory tokens (non newline, whitespace, ...), and optionally newlines.
+   * @param tokens
+   * @param keepNewlines
+   * @returns
+   */
+  public filterMandatory(
+    tokens: BaseToken[],
+    keepNewlines: boolean = false,
+  ): BaseToken[] {
+    return tokens.filter(
+      (token) =>
+        token.isMandatory === true ||
+        (keepNewlines && token.kind === TokenKind.Newline),
+    );
   }
 }
