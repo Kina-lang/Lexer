@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class DirectiveIncludeToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.DirectiveInclude, span);
+    super(TokenKind.DirectiveInclude, span, true);
   }
 
   override reconstruct(): string {

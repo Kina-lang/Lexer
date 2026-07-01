@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class TypeIntToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.TypeInt, span);
+    super(TokenKind.TypeInt, span, true);
   }
 
   override reconstruct(): string {

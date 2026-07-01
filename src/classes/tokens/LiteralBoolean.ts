@@ -5,7 +5,7 @@ export class LiteralBooleanToken extends BaseToken {
   private readonly _value: "true" | "false";
 
   constructor(span: TokenSpan, value: "true" | "false") {
-    super(TokenKind.LiteralBoolean, span);
+    super(TokenKind.LiteralBoolean, span, true);
     this._value = value;
   }
 

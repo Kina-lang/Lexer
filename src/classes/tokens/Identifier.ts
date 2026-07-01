@@ -5,7 +5,7 @@ export class IdentifierToken extends BaseToken {
   private readonly _value: string;
 
   constructor(span: TokenSpan, value: string) {
-    super(TokenKind.Identifier, span);
+    super(TokenKind.Identifier, span, true);
     this._value = value;
   }
 

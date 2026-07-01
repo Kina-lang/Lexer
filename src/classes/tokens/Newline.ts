@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class NewlineToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.Newline, span);
+    super(TokenKind.Newline, span, false);
   }
 
   override reconstruct(): string {

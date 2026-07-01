@@ -3,3 +3,6 @@ export * from "./classes/KinaLexerReconstructor";
 export * from "./classes/CharacterStream";
 export * from "./classes/tokenizers";
 export * from "./types/LexerConfig";
+export * from "./types/Token";
+export * from "./classes/tokens/_base";
+export * from "./classes/tokens/_index";

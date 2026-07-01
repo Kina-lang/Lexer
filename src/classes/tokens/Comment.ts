@@ -5,7 +5,7 @@ export class CommentToken extends BaseToken {
   private readonly _value: string;
 
   constructor(span: TokenSpan, content: string) {
-    super(TokenKind.Comment, span);
+    super(TokenKind.Comment, span, false);
     this._value = content;
   }
 

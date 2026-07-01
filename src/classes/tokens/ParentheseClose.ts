@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class ParentheseCloseToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.ParentheseClose, span);
+    super(TokenKind.ParentheseClose, span, true);
   }
 
   override reconstruct(): string {

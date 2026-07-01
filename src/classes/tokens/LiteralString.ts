@@ -5,7 +5,7 @@ export class LiteralStringToken extends BaseToken {
   private readonly _value: string;
 
   constructor(span: TokenSpan, value: string) {
-    super(TokenKind.LiteralString, span);
+    super(TokenKind.LiteralString, span, true);
     this._value = value;
   }
 

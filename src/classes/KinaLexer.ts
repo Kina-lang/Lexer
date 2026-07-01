@@ -65,9 +65,17 @@ export class KinaLexer {
       return tokenizer.tokenize(characterStream);
     }
 
-    // If no tokenizer could tokenize the current character, throw an error
+    // If no tokenizer could tokenize the current character, throw an error or skip the character if skipUnknownTokens is true
+    if (this._opts.skipUnknownTokens == true) {
+      characterStream.advance();
+      return [];
+    }
     throw new KinaAssertionError(
       `No tokenizer could tokenize the current character at position ${characterStream.currentPosition}.`,
     );
+  }
+
+  private filterMandatory(tokens: BaseToken[]): BaseToken[] {
+    return tokens.filter((token) => token.isMandatory === true);
   }
 }

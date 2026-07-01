@@ -4,10 +4,16 @@ import type { TokenKind, TokenSpan } from "../../types/Token";
 export abstract class BaseToken {
   protected readonly _kind: TokenKind;
   protected readonly _span: TokenSpan | null = null;
+  protected readonly _isMandatory: boolean = false;
 
-  constructor(kind: TokenKind, span: TokenSpan | null = null) {
+  constructor(
+    kind: TokenKind,
+    span: TokenSpan | null = null,
+    isMandatory: boolean = false,
+  ) {
     this._kind = kind;
     this._span = span;
+    this._isMandatory = isMandatory;
   }
 
   public get kind(): TokenKind {
@@ -16,6 +22,10 @@ export abstract class BaseToken {
 
   public get span(): TokenSpan | null {
     return this._span;
+  }
+
+  public get isMandatory(): boolean {
+    return this._isMandatory;
   }
 
   export(): {

@@ -5,7 +5,7 @@ export class LiteralIntegerToken extends BaseToken {
   private readonly _value: string;
 
   constructor(span: TokenSpan, value: string) {
-    super(TokenKind.LiteralInteger, span);
+    super(TokenKind.LiteralInteger, span, true);
     this._value = value;
   }
 

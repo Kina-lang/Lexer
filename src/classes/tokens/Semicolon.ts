@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class SemicolonToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.Semicolon, span);
+    super(TokenKind.Semicolon, span, true);
   }
 
   override reconstruct(): string {

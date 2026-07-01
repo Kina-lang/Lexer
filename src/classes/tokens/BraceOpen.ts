@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class BraceOpenToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.BraceOpen, span);
+    super(TokenKind.BraceOpen, span, true);
   }
 
   override reconstruct(): string {

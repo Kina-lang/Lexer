@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class KeywordExternToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.KeywordExtern, span);
+    super(TokenKind.KeywordExtern, span, true);
   }
 
   override reconstruct(): string {

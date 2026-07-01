@@ -5,7 +5,7 @@ export class WhitespaceToken extends BaseToken {
   private readonly _value: string;
 
   constructor(span: TokenSpan, value: string) {
-    super(TokenKind.Whitespace, span);
+    super(TokenKind.Whitespace, span, false);
 
     this._value = value;
   }

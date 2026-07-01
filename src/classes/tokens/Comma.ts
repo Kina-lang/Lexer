@@ -3,7 +3,7 @@ import { BaseToken } from "./_base";
 
 export class CommaToken extends BaseToken {
   constructor(span: TokenSpan) {
-    super(TokenKind.Comma, span);
+    super(TokenKind.Comma, span, true);
   }
 
   override reconstruct(): string {
